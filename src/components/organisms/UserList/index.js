@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyledList, Wrapper } from './styled';
 import UserListItem from 'components/molecules/UserListItem';
-import { usersData } from 'data/usersData.js';
+import { fetchPeople } from 'redux/peopleSlice';
+import { useDispatch } from 'react-redux';
 
 const UserList = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPeople());
+  }, [dispatch]);
+
   return (
     <Wrapper>
-      <StyledList>
-        {usersData.map((userData) => (
-          <UserListItem userData={userData} key={userData.name} />
-        ))}
-      </StyledList>
+      <StyledList></StyledList>
     </Wrapper>
   );
 };
