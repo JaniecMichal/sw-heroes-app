@@ -3,7 +3,7 @@ import { GlobalStyle } from 'assets/GlobalStyles/GlobalStyles.js';
 import { theme } from 'assets/theme/theme.js';
 import { ThemeProvider } from 'styled-components';
 import { MainWrapper } from './styled';
-import UserList from 'components/organisms/UserList';
+import CharactersList from 'components/organisms/CharactersList';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <>
         <GlobalStyle />
         <MainWrapper>
-          <UserList />
+          <CharactersList />
         </MainWrapper>
       </>
     </ThemeProvider>
