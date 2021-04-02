@@ -1,14 +1,21 @@
 import styled from 'styled-components';
 
 export const StyledButton = styled.button`
-  width: 25px;
-  height: 25px;
-  background-color: ${({ theme }) => theme.colors.heather};
-  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  background-color: transparent;
   border: none;
   padding: 5px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   svg {
-    stroke: ${({ theme }) => theme.colors.white};
+    fill: ${({ theme }) => theme.colors.turbo};
   }
 `;
