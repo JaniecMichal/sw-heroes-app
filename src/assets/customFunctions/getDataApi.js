@@ -9,9 +9,7 @@ const sourcePath = {
 
 export const getPeople = async () => {
   try {
-    console.log('Hello');
     const response = await fetch(sourcePath.people);
-    console.log(response);
     if (!response.ok) {
       throw new Error(response.statusText);
     }
