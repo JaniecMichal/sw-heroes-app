@@ -51,8 +51,7 @@ export const {
 } = peopleSlice.actions;
 
 const selectPeopleState = (state) => state.people;
-export const selectMovies = (state) => selectPeopleState(state).people.results;
-export const selectResults = (state) => selectPeopleState(state).results;
+export const selectPeople = (state) => selectPeopleState(state).people;
 export const selectLoading = (state) => selectPeopleState(state).loading;
 export const selectIsError = (state) => selectPeopleState(state).isError;
 export const selectCategories = (state) => selectPeopleState(state).categories;
