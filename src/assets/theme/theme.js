@@ -18,7 +18,9 @@ export const theme = {
     deYork: '#8FCB81',
     raven: '#737C8E',
     vidaLoca: '#3EAE24',
-    gold: '#FFD700',
+    turbo: '#FFD700',
+    shark: '#272B30',
+    mako: '#3C4248',
   },
   media: {
     extraMobileSmall: '340px',
