@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledWrapper = styled.div`
-  height: 90vh; 
+  height: 90vh;
   grid-column: 1/-1;
 `;
 export const StyledSpinner = styled.img`
