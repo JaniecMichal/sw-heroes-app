@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
   margin-right: 14px;
@@ -19,4 +19,21 @@ export const StyledCaption = styled.p`
 
 export const BoldedCaption = styled.span`
   font-weight: 700;
+`;
+
+export const DetailsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const DetailsCaption = styled(StyledCaption)`
+  color: teal;
+  display: unset;
+  word-wrap: break-word;
+
+  ${({ hide }) =>
+    hide &&
+    css`
+      display: none;
+    `};
 `;
