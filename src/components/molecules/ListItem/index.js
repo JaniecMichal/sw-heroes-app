@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { ItemWrapper } from './styled';
 import CharacterName from 'components/atoms/CharacterName';
@@ -6,14 +6,22 @@ import Button from 'components/atoms/Button';
 import { ReactComponent as ProfileIcon } from 'assets/images/profile.svg';
 
 const UserListItem = ({ personData }) => {
+  const { name, gender, birth_year, ...more } = personData;
+  const [showMore, setShowMore] = useState(false);
+  const handleClick = () => {
+    setShowMore(!showMore);
+  };
+
   return (
     <ItemWrapper>
       <CharacterName
-        name={personData.name}
-        gender={personData.gender}
-        birthYear={personData.birth_year}
+        name={name}
+        gender={gender}
+        birthYear={birth_year}
+        showMore={showMore}
+        moreDetails={more}
       />
-      <Button>
+      <Button onClick={() => handleClick()}>
         <ProfileIcon />
       </Button>
     </ItemWrapper>
