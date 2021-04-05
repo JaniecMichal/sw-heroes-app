@@ -7,9 +7,9 @@ const sourcePath = {
   vehicles: 'https://swapi.dev/api/vehicles/',
 };
 
-export const getPeople = async () => {
+export const getApiData = async (url = sourcePath.people) => {
   try {
-    const response = await fetch(sourcePath.people);
+    const response = await fetch(url);
     if (!response.ok) {
       throw new Error(response.statusText);
     }
