@@ -5,9 +5,8 @@ export const peopleSlice = createSlice({
   initialState: {
     people: null,
     count: null,
-    categories: null,
-    peopleId: null,
-    person: null,
+    personUrl: null,
+    personDetails: null,
     loading: true,
     isError: false,
   },
@@ -23,16 +22,13 @@ export const peopleSlice = createSlice({
       state.loading = false;
       state.isError = false;
     },
-    fetchCategories: (state, { payload: categories }) => {
-      state.categories = categories.categories;
-    },
-    fetchPersonDetails: (state, { payload: peopleId }) => {
-      state.peopleId = peopleId;
+    fetchPersonDetails: (state, { payload: url }) => {
+      state.personUrl = url;
       state.loading = true;
     },
     fetchPersonSuccess: (state, { payload: details }) => {
       state.loading = false;
-      state.person = details;
+      state.personDetails = details;
     },
     setError: (state) => {
       state.isError = true;
@@ -44,7 +40,6 @@ export const peopleSlice = createSlice({
 export const {
   fetchPeople,
   fetchPeopleSuccess,
-  fetchCategories,
   fetchPersonDetails,
   fetchPersonSuccess,
   setError,
@@ -54,8 +49,8 @@ const selectPeopleState = (state) => state.people;
 export const selectPeople = (state) => selectPeopleState(state).people;
 export const selectLoading = (state) => selectPeopleState(state).loading;
 export const selectIsError = (state) => selectPeopleState(state).isError;
-export const selectCategories = (state) => selectPeopleState(state).categories;
-export const selectPerson = (state) => selectPeopleState(state).person;
-export const selectPersonId = (state) => selectPeopleState(state).person;
+export const selectPersonUrl = (state) => selectPeopleState(state).personUrl;
+export const selectPersonDetails = (state) =>
+  selectPeopleState(state).personDetails;
 
 export default peopleSlice.reducer;
