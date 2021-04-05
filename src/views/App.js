@@ -1,23 +1,30 @@
 import React from 'react';
-import { GlobalStyle } from 'assets/GlobalStyles/GlobalStyles.js';
-import { theme } from 'assets/theme/theme.js';
-import { ThemeProvider } from 'styled-components';
-import { MainWrapper } from './styled';
-import CharactersList from 'components/organisms/CharactersList';
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { toPeopleList, toPersonDetails } from 'assets/customFunctions/routes';
+import PeopleList from './PeopleList';
+import PersonDetails from './PersonDetails';
 import Logo from 'components/atoms/Logo';
+import { MainWrapper } from './styled';
 
-function App() {
+const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <>
-        <GlobalStyle />
-        <Logo logo={'Star wars heros app'} />
-        <MainWrapper>
-          <CharactersList />
-        </MainWrapper>
-      </>
-    </ThemeProvider>
+    <HashRouter>
+      <Logo logo={'Star wars heros app'} />
+      <MainWrapper>
+        <Switch>
+          <Route exact path={toPersonDetails()}>
+            <PersonDetails />
+          </Route>
+          <Route exact path={toPeopleList()}>
+            <PeopleList />
+          </Route>
+          <Route path="/">
+            <Redirect to={toPeopleList()} />
+          </Route>
+        </Switch>
+      </MainWrapper>
+    </HashRouter>
   );
-}
+};
 
 export default App;
