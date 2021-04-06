@@ -5,6 +5,7 @@ import Header from 'components/atoms/Header';
 import { Wrapper } from './styled';
 import { selectLoading, selectPersonDetails } from 'redux/peopleSlice';
 import Spinner from 'components/atoms/Spinner';
+import { unNecessaryDetails } from './unNecessaryDetails';
 
 const CharacterDetails = () => {
   const personDetails = useSelector(selectPersonDetails);
@@ -20,7 +21,7 @@ const CharacterDetails = () => {
     <Wrapper>
       <Header headerTitle={personDetails.name} />
       {detailsName
-        .filter((name) => name !== 'name')
+        .filter((name) => !unNecessaryDetails.includes(name))
         .map((detailName) => (
           <Detail
             key={detailName}
