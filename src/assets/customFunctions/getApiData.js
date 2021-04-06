@@ -7,17 +7,19 @@ const sourcePath = {
   vehicles: 'https://swapi.dev/api/vehicles/',
 };
 
-export const getApiData = async (url = sourcePath.people) => {
+export const getApiData = async (url) => {
   try {
+    if (url === null || url === undefined) url = sourcePath.people;
+    if (url === 'films') url = sourcePath.films;
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(response.statusText);
     }
 
-    const people = await response.json();
-    return people;
+    const apiData = await response.json();
+    return apiData;
   } catch (error) {
-    console.error('ups');
+    console.error('ups... we have a some problem :(');
   }
 };
 
