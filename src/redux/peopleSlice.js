@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const peopleSlice = createSlice({
   name: 'people',
   initialState: {
+    films: null,
     people: null,
     count: null,
     personUrl: null,
@@ -11,6 +12,16 @@ export const peopleSlice = createSlice({
     isError: false,
   },
   reducers: {
+    fetchFilms: (state) => {
+      state.films = [];
+      state.loading = true;
+      state.isError = false;
+    },
+    fetchFilmsSuccess: (state, { payload: films }) => {
+      state.films = films.results;
+      state.loading = false;
+      state.isError = false;
+    },
     fetchPeople: (state) => {
       state.people = [];
       state.loading = true;
@@ -38,6 +49,8 @@ export const peopleSlice = createSlice({
 });
 
 export const {
+  fetchFilms,
+  fetchFilmsSuccess,
   fetchPeople,
   fetchPeopleSuccess,
   fetchPersonDetails,
@@ -47,6 +60,7 @@ export const {
 
 const selectPeopleState = (state) => state.people;
 export const selectPeople = (state) => selectPeopleState(state).people;
+export const selectFilms = (state) => selectPeopleState(state).films;
 export const selectLoading = (state) => selectPeopleState(state).loading;
 export const selectIsError = (state) => selectPeopleState(state).isError;
 export const selectPersonUrl = (state) => selectPeopleState(state).personUrl;

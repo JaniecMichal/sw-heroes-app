@@ -1,6 +1,8 @@
 import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
 import { getApiData } from 'assets/customFunctions/getApiData.js';
 import {
+  fetchFilms,
+  fetchFilmsSuccess,
   fetchPeople,
   fetchPeopleSuccess,
   fetchPersonDetails,
@@ -8,6 +10,15 @@ import {
   setError,
 } from './peopleSlice';
 import store from 'store';
+
+function* fetchFilmsHandler({ payload = 'films' }) {
+  try {
+    const films = yield call(getApiData, payload);
+    yield put(fetchFilmsSuccess(films));
+  } catch (error) {
+    yield put(setError());
+  }
+}
 
 function* fetchPeopleHandler() {
   try {
@@ -29,6 +40,7 @@ function* fetchPersonDetailsHandler() {
 }
 
 export function* watchFetchPeople() {
+  yield takeEvery(fetchFilms.type, fetchFilmsHandler);
   yield takeEvery(fetchPeople.type, fetchPeopleHandler);
   yield takeLatest(fetchPersonDetails.type, fetchPersonDetailsHandler);
 }
