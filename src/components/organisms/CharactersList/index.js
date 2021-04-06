@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react';
 import { StyledList, Wrapper } from './styled';
 import ListItem from 'components/molecules/ListItem';
-import { fetchPeople, selectLoading, selectPeople } from 'redux/peopleSlice';
+import {
+  fetchFilms,
+  fetchPeople,
+  selectLoading,
+  selectPeople,
+} from 'redux/peopleSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import Spinner from 'components/atoms/Spinner';
 
@@ -12,6 +17,7 @@ const CharactersList = () => {
 
   useEffect(() => {
     dispatch(fetchPeople());
+    dispatch(fetchFilms());
   }, [dispatch]);
 
   return (
