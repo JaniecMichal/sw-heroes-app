@@ -1,28 +1,32 @@
 import React from 'react';
-import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import { toPeopleList, toPersonDetails } from 'assets/customFunctions/routes';
 import PeopleList from './PeopleList';
 import PersonDetails from './PersonDetails';
 import Logo from 'components/atoms/Logo';
 import { MainWrapper } from './styled';
+import Intro from 'components/organisms/Intro';
 
 const App = () => {
   return (
     <HashRouter>
-      <Logo logo={'Star wars heros app'} />
-      <MainWrapper>
-        <Switch>
-          <Route exact path={toPersonDetails()}>
+      <Switch>
+        <Route exact path={toPersonDetails()}>
+          <Logo logo={'Star wars heroes app'} />
+          <MainWrapper>
             <PersonDetails />
-          </Route>
-          <Route exact path={toPeopleList()}>
+          </MainWrapper>
+        </Route>
+        <Route exact path={toPeopleList()}>
+          <Logo logo={'Star wars heroes app'} />
+          <MainWrapper>
             <PeopleList />
-          </Route>
-          <Route path="/">
-            <Redirect to={toPeopleList()} />
-          </Route>
-        </Switch>
-      </MainWrapper>
+          </MainWrapper>
+        </Route>
+        <Route path="/">
+          <Intro />
+        </Route>
+      </Switch>
     </HashRouter>
   );
 };
