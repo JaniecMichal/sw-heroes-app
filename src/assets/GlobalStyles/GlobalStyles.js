@@ -16,5 +16,6 @@ export const GlobalStyle = createGlobalStyle`
         font-weight: 400;
         background-color:${({ theme }) => theme.colors.shark};
         color: ${({ theme }) => theme.colors.heather};
+        padding:10px;
     }
 `;
