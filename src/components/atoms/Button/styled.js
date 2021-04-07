@@ -30,6 +30,21 @@ export const StyledButton = styled.button`
       font-weight: 700;
     `}
 
+  ${({ intro }) =>
+    intro &&
+    css`
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: auto;
+      height: auto;
+      margin-top: 30px;
+      padding: 10px;
+      border: 2px solid ${({ theme }) => theme.colors.turbo};
+      color: ${({ theme }) => theme.colors.heather};
+      font-weight: 700;
+    `}
+
   svg {
     fill: ${({ theme }) => theme.colors.turbo};
   }
