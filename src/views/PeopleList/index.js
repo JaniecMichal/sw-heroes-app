@@ -18,11 +18,19 @@ const PeopleList = () => {
   const loading = useSelector(selectLoading);
   const [whichPart, setWhichPart] = useState(1);
   const next = useSelector(selectNext);
+  const [currentList, setCurrentList] = useState(people);
 
   useEffect(() => {
     dispatch(fetchPeople());
     dispatch(fetchFilms());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (whichPart === 2) {
+      return setCurrentList(people.slice(0, -5));
+    }
+    setCurrentList(people);
+  }, [people, whichPart]);
 
   const loadNextFive = () => {
     if (whichPart === 1) {
@@ -39,7 +47,7 @@ const PeopleList = () => {
 
   return (
     <>
-      <CharactersList people={whichPart === 2 ? people.slice(0, -5) : people} />
+      <CharactersList people={currentList} />
       <Button onClick={loadNextFive} loadMore>
         Load More Heroes!
       </Button>
