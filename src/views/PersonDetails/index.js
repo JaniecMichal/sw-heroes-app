@@ -9,6 +9,9 @@ import {
 } from './personDetailsSlice';
 import Spinner from 'components/atoms/Spinner';
 import { selectPeople } from 'views/PeopleList/peopleListSlice';
+import Button from 'components/atoms/Button';
+import StyledLink from 'components/atoms/StyledLink';
+import { toPeopleList } from 'assets/customFunctions/routes';
 
 const PersonDetails = () => {
   const { id } = useParams();
@@ -26,7 +29,14 @@ const PersonDetails = () => {
     return <Spinner />;
   }
 
-  return <CharacterDetails detailsData={personDetails} />;
+  return (
+    <>
+      <CharacterDetails detailsData={personDetails} />
+      <Button back={'back'}>
+        <StyledLink to={toPeopleList()}>Back to list</StyledLink>
+      </Button>
+    </>
+  );
 };
 
 export default PersonDetails;
