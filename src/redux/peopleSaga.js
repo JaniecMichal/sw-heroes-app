@@ -20,9 +20,9 @@ function* fetchFilmsHandler({ payload = 'films' }) {
   }
 }
 
-function* fetchPeopleHandler() {
+function* fetchPeopleHandler({ payload }) {
   try {
-    const people = yield call(getApiData);
+    const people = yield call(getApiData, payload);
     yield put(fetchPeopleSuccess(people));
   } catch (error) {
     yield put(setError());
