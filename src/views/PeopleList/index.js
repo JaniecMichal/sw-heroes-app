@@ -9,6 +9,7 @@ import {
   fetchFilms,
   selectPeople,
   selectLoading,
+  fetchNextPeople,
 } from 'redux/peopleSlice';
 
 const PeopleList = () => {
@@ -18,25 +19,31 @@ const PeopleList = () => {
   const [whichPart, setWhichPart] = useState(1);
   const next = useSelector(selectNext);
 
-  const loadNextFive = () => {
-    dispatch(fetchPeople(next));
-  };
-
   useEffect(() => {
     dispatch(fetchPeople());
     dispatch(fetchFilms());
   }, [dispatch]);
 
-  if (!loading) {
-    return (
-      <>
-        <CharactersList people={people} />
-        <Button onClick={() => loadNextFive} loadMore>
-          Load More Heroes!
-        </Button>
-      </>
-    );
+  const loadNextFive = () => {
+    if (whichPart === 1) {
+      dispatch(fetchNextPeople(next));
+      setWhichPart(2);
+      return;
+    }
+    setWhichPart(1);
+  };
+
+  if (loading && !people.length) {
+    return <Spinner />;
   }
-  return <Spinner />;
+
+  return (
+    <>
+      <CharactersList people={whichPart === 2 ? people.slice(0, -5) : people} />
+      <Button onClick={loadNextFive} loadMore>
+        Load More Heroes!
+      </Button>
+    </>
+  );
 };
 export default PeopleList;
