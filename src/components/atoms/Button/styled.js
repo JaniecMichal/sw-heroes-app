@@ -45,6 +45,19 @@ export const StyledButton = styled.button`
       font-weight: 700;
     `}
 
+    ${({ back }) =>
+    back &&
+    css`
+      position: static;
+      width: auto;
+      height: auto;
+      margin-top: 30px;
+      padding: 10px;
+      border: 2px solid ${({ theme }) => theme.colors.turbo};
+      color: ${({ theme }) => theme.colors.heather};
+      font-weight: 700;
+    `}
+
   svg {
     fill: ${({ theme }) => theme.colors.turbo};
   }
