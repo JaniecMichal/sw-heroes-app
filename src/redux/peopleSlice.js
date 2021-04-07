@@ -29,7 +29,19 @@ export const peopleSlice = createSlice({
     },
 
     fetchPeopleSuccess: (state, { payload: people }) => {
-      state.people = state.people.concat(people.results);
+      state.people = people.results;
+      state.previous = people.previous;
+      state.next = people.next;
+      state.loading = false;
+      state.isError = false;
+    },
+    fetchNextPeople: (state) => {
+      state.loading = true;
+      state.isError = false;
+    },
+
+    fetchNextPeopleSuccess: (state, { payload: people }) => {
+      state.people = [...state.people, ...people.results];
       state.previous = people.previous;
       state.next = people.next;
       state.loading = false;
@@ -55,6 +67,8 @@ export const {
   fetchFilmsSuccess,
   fetchPeople,
   fetchPeopleSuccess,
+  fetchNextPeople,
+  fetchNextPeopleSuccess,
   fetchPersonDetails,
   fetchPersonSuccess,
   setError,

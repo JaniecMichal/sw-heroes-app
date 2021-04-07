@@ -3,6 +3,8 @@ import { getApiData } from 'assets/customFunctions/getApiData.js';
 import {
   fetchFilms,
   fetchFilmsSuccess,
+  fetchNextPeople,
+  fetchNextPeopleSuccess,
   fetchPeople,
   fetchPeopleSuccess,
   fetchPersonDetails,
@@ -29,6 +31,15 @@ function* fetchPeopleHandler({ payload }) {
   }
 }
 
+function* fetchNextPeopleHandler({ payload }) {
+  try {
+    const people = yield call(getApiData, payload);
+    yield put(fetchNextPeopleSuccess(people));
+  } catch (error) {
+    yield put(setError());
+  }
+}
+
 function* fetchPersonDetailsHandler() {
   try {
     const personUrl = store.getState().people.personUrl;
@@ -42,5 +53,6 @@ function* fetchPersonDetailsHandler() {
 export function* watchFetchPeople() {
   yield takeEvery(fetchFilms.type, fetchFilmsHandler);
   yield takeEvery(fetchPeople.type, fetchPeopleHandler);
+  yield takeEvery(fetchNextPeople.type, fetchNextPeopleHandler);
   yield takeLatest(fetchPersonDetails.type, fetchPersonDetailsHandler);
 }
