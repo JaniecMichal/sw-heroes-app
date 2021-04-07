@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledButton = styled.button`
   width: 42px;
@@ -14,6 +14,21 @@ export const StyledButton = styled.button`
   &:hover {
     cursor: pointer;
   }
+
+  ${({ loadMore }) =>
+    loadMore &&
+    css`
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: auto;
+      height: auto;
+      margin-top: 30px;
+      padding: 10px;
+      border: 2px solid ${({ theme }) => theme.colors.turbo};
+      color: ${({ theme }) => theme.colors.heather};
+      font-weight: 700;
+    `}
 
   svg {
     fill: ${({ theme }) => theme.colors.turbo};
