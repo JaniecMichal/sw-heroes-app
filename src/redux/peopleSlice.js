@@ -4,8 +4,9 @@ export const peopleSlice = createSlice({
   name: 'people',
   initialState: {
     films: null,
-    people: null,
-    count: null,
+    people: [],
+    next: null,
+    previous: null,
     personUrl: null,
     personDetails: null,
     loading: true,
@@ -23,13 +24,14 @@ export const peopleSlice = createSlice({
       state.isError = false;
     },
     fetchPeople: (state) => {
-      state.people = [];
       state.loading = true;
       state.isError = false;
     },
+
     fetchPeopleSuccess: (state, { payload: people }) => {
-      state.people = people.results;
-      state.count = people.count;
+      state.people = state.people.concat(people.results);
+      state.previous = people.previous;
+      state.next = people.next;
       state.loading = false;
       state.isError = false;
     },
@@ -61,6 +63,8 @@ export const {
 const selectPeopleState = (state) => state.people;
 export const selectPeople = (state) => selectPeopleState(state).people;
 export const selectFilms = (state) => selectPeopleState(state).films;
+export const selectPrevious = (state) => selectPeopleState(state).previous;
+export const selectNext = (state) => selectPeopleState(state).next;
 export const selectLoading = (state) => selectPeopleState(state).loading;
 export const selectIsError = (state) => selectPeopleState(state).isError;
 export const selectPersonUrl = (state) => selectPeopleState(state).personUrl;
