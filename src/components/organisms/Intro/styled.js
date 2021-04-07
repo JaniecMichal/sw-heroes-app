@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -56,9 +55,4 @@ export const CrawlText = styled.p`
   line-height: 1.33;
   margin-bottom: 4rem;
   text-align: justify;
-`;
-
-export const StyledLink = styled(Link)`
-  color: ${({ theme }) => theme.colors.heather};
-  text-decoration: none;
 `;

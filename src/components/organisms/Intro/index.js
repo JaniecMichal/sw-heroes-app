@@ -6,13 +6,13 @@ import {
   CrawlHeader,
   CrawlSubHeader,
   CrawlText,
-  StyledLink,
   Title,
   Wrapper,
 } from './styled';
 import Logo from 'components/atoms/Logo';
 import Button from 'components/atoms/Button';
 import { toPeopleList } from 'assets/customFunctions/routes';
+import StyledLink from 'components/atoms/StyledLink';
 
 const Intro = () => {
   const title = useRef();
