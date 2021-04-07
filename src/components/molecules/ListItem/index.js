@@ -7,7 +7,7 @@ import CharacterName from 'components/atoms/CharacterName';
 import Button from 'components/atoms/Button';
 import { ReactComponent as ProfileIcon } from 'assets/images/profile.svg';
 import { toPersonDetails } from 'assets/customFunctions/routes';
-import { fetchPersonDetails } from 'redux/peopleSlice';
+import { fetchPersonDetails } from 'views/PersonDetails/personDetailsSlice';
 
 const UserListItem = ({ personData }) => {
   const { name, gender, birth_year, ...more } = personData;

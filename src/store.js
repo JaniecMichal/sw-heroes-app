@@ -1,17 +1,21 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
-import peopleReducer from 'redux/peopleSlice';
-import { watchFetchPeople } from 'redux/peopleSaga';
+import peopleListReducer from 'views/PeopleList/peopleListSlice';
+import personDetailsReducer from 'views/PersonDetails/personDetailsSlice';
+import filmsReducer from 'films/filmsSlice';
+import rootSaga from 'rootSaga';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
   reducer: {
-    people: peopleReducer,
+    peopleList: peopleListReducer,
+    personDetails: personDetailsReducer,
+    films: filmsReducer,
   },
   middleware: [sagaMiddleware],
 });
 
-sagaMiddleware.run(watchFetchPeople);
+sagaMiddleware.run(rootSaga);
 
 export default store;

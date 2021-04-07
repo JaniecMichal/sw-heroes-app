@@ -6,11 +6,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectNext,
   fetchPeople,
-  fetchFilms,
   selectPeople,
   selectLoading,
   fetchNextPeople,
-} from 'redux/peopleSlice';
+} from './peopleListSlice';
+import { fetchFilms } from 'films/filmsSlice';
 
 const PeopleList = () => {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectFilms } from 'redux/peopleSlice';
+import { selectFilms } from 'films/filmsSlice';
 import {
   DetailName,
   DetailValue,
