@@ -32,9 +32,10 @@ const PersonDetails = () => {
   return (
     <>
       <CharacterDetails detailsData={personDetails} />
-      <Button back={'back'}>
-        <StyledLink to={toPeopleList()}>Back to list</StyledLink>
-      </Button>
+
+      <StyledLink to={toPeopleList()}>
+        <Button back={'back'}>Back to list</Button>
+      </StyledLink>
     </>
   );
 };

@@ -42,6 +42,7 @@ export const CrawlHeader = styled.h1`
 `;
 
 export const CrawlSubHeader = styled.h2`
+  margin-top: 10rem;
   font-size: 250%;
   font-weight: 500;
   line-height: 1;
@@ -51,6 +52,7 @@ export const CrawlSubHeader = styled.h2`
 `;
 
 export const CrawlText = styled.p`
+  margin-top: 20rem;
   font-weight: 700;
   line-height: 1.33;
   margin-bottom: 4rem;

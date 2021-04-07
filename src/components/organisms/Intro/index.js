@@ -52,9 +52,9 @@ const Intro = () => {
           </CrawlText>
         </CrawlContent>
       </Crawl>
-      <Button intro={'intro'}>
-        <StyledLink to={toPeopleList()}>Skip the intro</StyledLink>
-      </Button>
+      <StyledLink to={toPeopleList()}>
+        <Button intro={'intro'}>Go to APP</Button>
+      </StyledLink>
     </Wrapper>
   );
 };
