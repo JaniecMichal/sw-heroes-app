@@ -4,7 +4,7 @@ export const personSlice = createSlice({
   name: 'personDetails',
   initialState: {
     personUrl: null,
-    personDetails: null,
+    personDetails: [],
     loading: true,
     isError: false,
   },
@@ -14,8 +14,8 @@ export const personSlice = createSlice({
       state.loading = true;
     },
     fetchPersonSuccess: (state, { payload: details }) => {
-      state.loading = false;
       state.personDetails = details;
+      state.loading = false;
     },
     setError: (state) => {
       state.isError = true;

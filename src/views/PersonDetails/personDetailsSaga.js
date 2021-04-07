@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import { getApiData } from 'assets/customFunctions/getApiData.js';
 import {
   fetchPersonDetails,
@@ -18,5 +18,5 @@ function* fetchPersonDetailsHandler() {
 }
 
 export function* watchFetchPersonDetails() {
-  yield takeEvery(fetchPersonDetails.type, fetchPersonDetailsHandler);
+  yield takeLatest(fetchPersonDetails.type, fetchPersonDetailsHandler);
 }
