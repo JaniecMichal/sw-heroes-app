@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/sw-heroes-app/static/js/main.4d1467f1.chunk.js",
-    "main.js.map": "/sw-heroes-app/static/js/main.4d1467f1.chunk.js.map",
-    "runtime-main.js": "/sw-heroes-app/static/js/runtime-main.0ab66a45.js",
-    "runtime-main.js.map": "/sw-heroes-app/static/js/runtime-main.0ab66a45.js.map",
-    "static/js/2.963a322a.chunk.js": "/sw-heroes-app/static/js/2.963a322a.chunk.js",
-    "static/js/2.963a322a.chunk.js.map": "/sw-heroes-app/static/js/2.963a322a.chunk.js.map",
+    "main.js": "/sw-heroes-app/static/js/main.ab9190ca.chunk.js",
+    "main.js.map": "/sw-heroes-app/static/js/main.ab9190ca.chunk.js.map",
+    "runtime-main.js": "/sw-heroes-app/static/js/runtime-main.dfc2e667.js",
+    "runtime-main.js.map": "/sw-heroes-app/static/js/runtime-main.dfc2e667.js.map",
+    "static/js/2.e815a8b0.chunk.js": "/sw-heroes-app/static/js/2.e815a8b0.chunk.js",
+    "static/js/2.e815a8b0.chunk.js.map": "/sw-heroes-app/static/js/2.e815a8b0.chunk.js.map",
     "index.html": "/sw-heroes-app/index.html",
-    "static/js/2.963a322a.chunk.js.LICENSE.txt": "/sw-heroes-app/static/js/2.963a322a.chunk.js.LICENSE.txt",
+    "static/js/2.e815a8b0.chunk.js.LICENSE.txt": "/sw-heroes-app/static/js/2.e815a8b0.chunk.js.LICENSE.txt",
     "static/media/profile.d2ec656b.svg": "/sw-heroes-app/static/media/profile.d2ec656b.svg",
     "static/media/spinner.c5f29646.svg": "/sw-heroes-app/static/media/spinner.c5f29646.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.0ab66a45.js",
-    "static/js/2.963a322a.chunk.js",
-    "static/js/main.4d1467f1.chunk.js"
+    "static/js/runtime-main.dfc2e667.js",
+    "static/js/2.e815a8b0.chunk.js",
+    "static/js/main.ab9190ca.chunk.js"
   ]
 }
