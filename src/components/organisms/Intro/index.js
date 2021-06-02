@@ -42,7 +42,7 @@ const Intro = () => {
             person. I am junior frontend developer who wants get this job!
           </CrawlText>
           <CrawlText>
-            I worked many houres to make this task the best I could. I hope that
+            I am still working to correct and improve this app. I hope that
             using will be good expierience and let you learn more about StarWars
             characters.
           </CrawlText>
